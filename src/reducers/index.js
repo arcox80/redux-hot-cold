@@ -6,13 +6,10 @@ const initialState = {
   correctAnswer: Math.floor(Math.random() * 100) + 1,
 };
 
-export const trelloReducer = (state=initialState, action) => {
-    if (action.type === actions.ADD_LIST) {
-        return Object.assign({}, state, {
-            lists: [...state.lists, {
-                title: action.title,
-                cards: []
-            }]
+export const gameReducer = (state=initialState, action) => {
+    if (action.type === actions.NEW_GAME) {
+        return Object.assign({}, initialState, {
+              correctAnswer: action.correctAnswer
         });
     }
     else if (action.type === actions.ADD_CARD) {

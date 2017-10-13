@@ -1,5 +1,12 @@
-export const ADD_LIST = 'ADD_LIST';
-export const addList = title => ({
-    type: ADD_LIST,
-    title
+export const NEW_GAME = 'NEW_GAME';
+export const newGame = () => ({
+    type: NEW_GAME,
+    correctAnswer: Math.floor(Math.random() * 100) + 1
 });
+
+
+//onNewGame
+//feedback
+//onGuess
+//count
+//guesses
