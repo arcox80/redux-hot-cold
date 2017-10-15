@@ -60,3 +60,18 @@ input:focus {
 :-ms-input-placeholder {  
    color: #95a5a6; 
 }
+
+label {
+  color: #95a5a6;
+}
+
+input#userGuess {
+  margin-top: .3em;
+}
+
+form {
+  background-color: #394264;
+  width: 380px;
+  margin: 0 auto;
+  padding-top: 25px;
+}

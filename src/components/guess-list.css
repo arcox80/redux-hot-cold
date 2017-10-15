@@ -1,6 +1,7 @@
 ul.guessBox {
-	height: 80px;
-	margin: 10px auto 0;
+  height: 80px;
+  width: 380px;
+	margin: 0 auto;
 	background: #11a8ab;
 	padding: 0.5em;
 	display: block;

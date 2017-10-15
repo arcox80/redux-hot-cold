@@ -11,7 +11,6 @@ import {newGame} from '../actions';
 class Game extends React.Component {
     newGame() {
         this.props.dispatch(newGame());
-        console.log('new game');
     }
 
     guess(guess) {
@@ -51,9 +50,10 @@ class Game extends React.Component {
     render() {
         return (
             <div>
-                <Header onNewGame={() => this.newGame()}/>
+                <Header onNewGame={() => this.newGame()} />
                 <GuessSection feedback={this.props.feedback}
-                    onGuess={(guess) => this.guess(guess)} />
+                              onGuess={(guess) => this.guess(guess)} 
+                />
                 <GuessCount count={this.props.guesses.length} />
                 <GuessList guesses={this.props.guesses} />
             </div>
