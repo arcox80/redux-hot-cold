@@ -6,45 +6,15 @@ import GuessSection from './guess-section';
 import GuessCount  from './guess-count';
 import GuessList from './guess-list';
 
-import {newGame} from '../actions';
+import {newGame, newGuess} from '../actions';
 
 class Game extends React.Component {
     newGame() {
-        this.props.dispatch(newGame());
+      this.props.dispatch(newGame());
     }
 
-    guess(guess) {
-        guess = parseInt(guess, 10);
-        if (isNaN(guess)) {
-            this.setState({
-                feedback: 'Please enter a valid number'
-            });
-            return;
-        }
-
-        const difference = Math.abs(guess - this.state.correctAnswer);
-
-        let feedback;
-        if (difference >= 50) {
-            feedback = 'You\'re Ice Cold...';
-        }
-        else if (difference >= 30) {
-            feedback = 'You\'re Cold...';
-        }
-        else if (difference >= 10) {
-            feedback = 'You\'re Warm';
-        }
-        else if (difference >= 1) {
-            feedback = 'You\'re Hot!';
-        }
-        else {
-            feedback = 'You got it!';
-        }
-
-        this.setState({
-            feedback,
-            guesses: [...this.state.guesses, guess]
-        });
+    newGuess(guess) {
+      this.props.dispatch(newGuess(guess));
     }
 
     render() {
@@ -52,7 +22,7 @@ class Game extends React.Component {
             <div>
                 <Header onNewGame={() => this.newGame()} />
                 <GuessSection feedback={this.props.feedback}
-                              onGuess={(guess) => this.guess(guess)} 
+                              onGuess={(guess) => this.newGuess(guess)} 
                 />
                 <GuessCount count={this.props.guesses.length} />
                 <GuessList guesses={this.props.guesses} />

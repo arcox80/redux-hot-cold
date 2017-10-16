@@ -9,7 +9,11 @@ export const toggleInfoModal = () => ({
   type: TOGGLE_INFO
 });
 
-//onNewGame
+export const NEW_GUESS = 'NEW_GUESS';
+export const newGuess = (guess) => ({
+  type: NEW_GUESS,
+  guess
+});
 //feedback
 //onGuess
 //count
